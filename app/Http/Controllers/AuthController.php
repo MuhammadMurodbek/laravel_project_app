@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class MainController extends Controller
+class AuthController extends Controller
 {
     public function login(){
         return view('auth.login');
@@ -34,25 +34,24 @@ class MainController extends Controller
 
 
     }
-  public function store(RegisterRequest $request){
-    $result = $request->validated();
-    $result['password'] = Hash::make($result['password']);
-    $user = User::create($result);
-    $user->assignRole('user');
-    auth()->login($user);
-    return redirect('/dashboard')->with('success', "Account successfully registered.");
-  }
-  public function logout(Request $request): RedirectResponse
-  {
-      Auth::logout();
-   
-      $request->session()->invalidate();
-   
-      $request->session()->regenerateToken();
-   
-      return redirect('/');
-  }
-  public function dashboard(){
-    return view('dashboard.facade');
-  }
+    
+    public function store(RegisterRequest $request){
+        $result = $request->validated();
+        $result['password'] = Hash::make($result['password']);
+        $user = User::create($result);
+        $user->assignRole('user');
+        auth()->login($user);
+        return redirect('/dashboard')->with('success', "Account successfully registered.");
+    }
+
+    public function logout(Request $request): RedirectResponse
+    {
+        Auth::logout();
+    
+        $request->session()->invalidate();
+    
+        $request->session()->regenerateToken();
+    
+        return redirect('/');
+    }
 }

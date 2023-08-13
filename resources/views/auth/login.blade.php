@@ -1,59 +1,69 @@
 <x-layout>
-    <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-                    alt="logo">
-                Flowbite
-            </a>
+    <!-- component -->
+    <!-- Container -->
+    <div class="flex flex-col h-screen bg-gray-100">
+        <!-- Auth Card Container -->
+        <div class="grid place-items-center mx-2 my-20 sm:my-auto">
+
+
+
+            <!-- Auth Card -->
             <div
-                class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        Sign in to your account
-                    </h1>
-                    <form class="space-y-4 md:space-y-6" action="{{ route('authenticate') }}" method="POST">
-                        @csrf
-                        <div>
-                            <label for="email"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
-                                email</label>
-                            <input type="email" name="email" id="email"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="name@company.com" required="">
-                        </div>
-                        <div>
-                            <label for="password"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                required="">
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="remember" aria-describedby="remember" type="checkbox"
-                                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                                        required="">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
-                                </div>
-                            </div>
-                            <a href="#"
-                                class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot
-                                password?</a>
-                        </div>
-                        <button type="submit"
-                            class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign
-                            in</button>
-                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Don’t have an account yet? <a href="#"
-                                class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
+                class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
+            px-6 py-10 sm:px-10 sm:py-6 
+            bg-white rounded-lg shadow-md lg:shadow-lg">
+
+                <!-- Card Title -->
+                <h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
+                    Login
+                </h2>
+
+                <form class="mt-10" action="{{ route('login') }}" method="POST">
+                    @csrf
+                    <!-- Email Input -->
+                    <label for="email" class="block text-xs font-semibold text-gray-600 uppercase">E-mail</label>
+                    <input id="email" type="email" name="email" placeholder="e-mail address" autocomplete="email"
+                        class="block w-full py-3 px-1 mt-2 
+                    text-gray-800 appearance-none 
+                    border-b-2 border-gray-100
+                    focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                        required />
+
+                    <!-- Password Input -->
+                    <label for="password"
+                        class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
+                    <input id="password" type="password" name="password" placeholder="password"
+                        autocomplete="current-password"
+                        class="block w-full py-3 px-1 mt-2 mb-4
+                    text-gray-800 appearance-none 
+                    border-b-2 border-gray-100
+                    focus:text-gray-500 focus:outline-none focus:border-gray-200"
+                        required />
+
+                    <!-- Auth Buttton -->
+                    <button type="submit"
+                        class="w-full py-3 mt-10 bg-gray-800 rounded-sm
+                    font-medium text-white uppercase
+                    focus:outline-none hover:bg-gray-700 hover:shadow-none">
+                        Login
+                    </button>
+
+                    <!-- Another Auth Routes -->
+                    <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
+                        <a href="#" class="flex-2 underline">
+                            Forgot password?
+                        </a>
+
+                        <p class="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
+                            or
                         </p>
-                    </form>
-                </div>
+
+                        <a href="{{ route('register') }}" class="flex-2 underline">
+                            Create an Account
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
 </x-layout>
