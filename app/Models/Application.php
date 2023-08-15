@@ -10,7 +10,10 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable = [
-
+        'user_id',
+        'title',
+        'message',
+        'file_url'
     ];
 
     protected function user(){

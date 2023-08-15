@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->text('title');
             $table->text('message');
-            $table->string('file_url');
+            $table->string('file_url')->nullable();
             $table->timestamps();
         });
     }

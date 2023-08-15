@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('dashboard',[MainController::class, 'dashboard'])->name('dashboard');
+    Route::get('myblogs',[MainController::class, 'myblogs'])->name('myblogs');
     Route::post('create-application',[ApplicationController::class, 'create'])->name('create-application');
 });
 
